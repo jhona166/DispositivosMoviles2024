@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.ir.backend.js.ic.rebuildCacheForDirtyFiles
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
@@ -33,7 +35,14 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures{
+        viewBinding = true
+    }
+    
+
 }
+
 
 dependencies {
 

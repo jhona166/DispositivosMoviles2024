@@ -3,54 +3,60 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:orientation="vertical"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp">
 
-    <TextView
-        android:layout_marginBottom="24dp"
-        android:textSize="24sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Bienvenido a mi app"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/etxt_user"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Usuario"
-        android:layout_margin="20dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="24dp"
+                android:text="Bienvenido a mi app"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/etxt_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:hint="Usuario"
+           />
 
-    <EditText
+        <EditText
 
-        android:id="@+id/etxt_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Contraseña"
-        android:layout_margin="20dp"/>
-
-    <Button
-        android:id="@+id/btn_login"
-        android:backgroundTint="@color/black"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-
-        android:text="Login"
-        android:drawableLeft="@drawable/login_24px"
-        android:textSize="@dimen/text_size"/>
-
+            android:id="@+id/etxt_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:layout_margin="20dp"/>
+        <Button
+            android:id="@+id/btn_login"
+            android:backgroundTint="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin = "10dp"
+            android:text="Ingresar"
+            android:drawableLeft="@drawable/login_24px"
+            android:textSize="18sp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </LinearLayout>
 
 
