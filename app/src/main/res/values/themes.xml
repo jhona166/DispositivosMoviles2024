@@ -2,8 +2,30 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.MyFirstApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/primaryColor</item>
+
     </style>
 
     <style name="Theme.MyFirstApp" parent="Base.Theme.MyFirstApp" />
+
+    <style name="ButtonBase">
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">@dimen/text_size_18</item>
+
+    </style>
+
+
+    <style name="ButtonGreen" parent="ButtonBase">
+
+        <item name="backgroundTint">@color/green</item>
+
+    </style>
+
+    <style name="ButtonBlue" parent="ButtonBase">
+
+        <item name="backgroundTint">@color/blue</item>
+
+    </style>
+
+
 </resources>

@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">MyFirstApp</string>
+    <string name="app_name">Mi primera aplicación 2.0</string>
+    <string name="btn_login_text">Ingresar</string>
+
+
+    <string name="txt_user">Usuario</string>
+    <string name="txt_password">Contraseña</string>
+
+
 </resources>
