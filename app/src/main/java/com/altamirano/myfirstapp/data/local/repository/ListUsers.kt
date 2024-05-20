@@ -1,4 +1,4 @@
-package com.altamirano.myfirstapp.data.repository
+package com.altamirano.myfirstapp.data.local.repository
 
 import com.altamirano.myfirstapp.data.UserClass
 

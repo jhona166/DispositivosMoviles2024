@@ -1,7 +1,7 @@
 package com.altamirano.myfirstapp.userCase
 
 import com.altamirano.myfirstapp.data.UserClass
-import com.altamirano.myfirstapp.data.repository.ListUsers
+import com.altamirano.myfirstapp.data.local.repository.ListUsers
 
 class LoginUserCase (val listUser: ListUsers) {
     operator fun invoke(

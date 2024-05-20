@@ -5,10 +5,16 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.altamirano.myfirstapp.data.repository.ListUsers
+import androidx.lifecycle.lifecycleScope
+import com.altamirano.myfirstapp.data.local.repository.ListUsers
 import com.altamirano.myfirstapp.userCase.LoginUserCase
 
 import com.altamirano.myfirstapp.databinding.ActivityMainBinding
+import com.altamirano.myfirstapp.logic.usercases.GetAllUsersUserCase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -25,6 +31,13 @@ class MainActivity : AppCompatActivity() {
 
         private fun initListeners() {
             binding.btnLogin.setOnClickListener {
+
+               lifecycleScope.launch(Dispatchers.IO) {
+                    GetAllUsersUserCase().invoke()
+                }
+
+
+/*
 
                 var loginUserCase= LoginUserCase(ListUsers())
 
@@ -50,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-
+*/
 
             }
 
