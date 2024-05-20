@@ -8,9 +8,13 @@ import retrofit2.http.Query
 
 interface NewsEndpoint {
     @GET("top")
-    suspend fun getAllTopsNews
-                (@Query("api_token") apiToken:String
-    ):Response<NewsApi>
+    suspend fun getAllTopsNews(): Response<NewsApi>
+
+    @GET("all")
+    suspend fun<T> getAllNews():Response<T>
+
+
+
 
 
 }

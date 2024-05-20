@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.coordinatorlayout.widget.CoordinatorLayout.DispatchChangeEvent
 import androidx.lifecycle.lifecycleScope
 import com.altamirano.myfirstapp.data.local.repository.ListUsers
 import com.altamirano.myfirstapp.userCase.LoginUserCase
@@ -15,6 +16,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -33,7 +35,12 @@ class MainActivity : AppCompatActivity() {
             binding.btnLogin.setOnClickListener {
 
                lifecycleScope.launch(Dispatchers.IO) {
-                    GetAllUsersUserCase().invoke()
+                   val x  = GetAllUsersUserCase().invoke()
+                   withContext(Dispatchers.Main)
+                   {
+                       binding.etxtUser.setText(x.toString())
+                   }
+
                 }
 
 
