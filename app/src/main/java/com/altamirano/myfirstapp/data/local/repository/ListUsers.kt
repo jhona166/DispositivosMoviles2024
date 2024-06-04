@@ -22,12 +22,14 @@ class ListUsers {
         return usReturn
     }
 
-    fun checkUserPassword2(user:String,pass:String):UserClass?{
-
-      return listUsers.filter{us->
-           us.name==user && us.pass==pass
-       }.first()
-
+    fun checkUserPassword2(user: String, pass: String): Result<UserClass> {
+        return try {
+            Result.success(listUsers.first { us ->
+                us.name == user && us.pass == pass
+            })
+        } catch (ex: Exception) {
+            Result.failure(ex)
+        }
     }
 
 

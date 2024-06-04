@@ -1,71 +1,57 @@
 package com.altamirano.myfirstapp.ui.activities
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.altamirano.myfirstapp.R
-import com.altamirano.myfirstapp.R.layout.activity_constrain
+
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.altamirano.myfirstapp.databinding.ActivityConstrainBinding
-import com.altamirano.myfirstapp.databinding.ActivityMainBinding
+import com.altamirano.myfirstapp.logic.usercases.GetAllTopsNewUserCase
+import com.altamirano.myfirstapp.ui.adapters.NewsAdapter
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class ConstrainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityConstrainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         binding = ActivityConstrainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        var idUser: Int?=null
 
-         intent.extras?.let{dato->
-            var idUser = dato.getInt("idUser")
+        initData()
+    }
 
+    private fun initRecyclerView(items: List<com.altamirano.myfirstapp.data.network.entities.topNews.Data>) {
+        binding.rvTopNews.adapter = NewsAdapter(items)
+        binding.rvTopNews.layoutManager = LinearLayoutManager(
+            this, LinearLayoutManager.VERTICAL, false
+        )
+    }
 
+    private fun initData() {
+        binding.pgbarLoadData.visibility = View.VISIBLE
 
-         }
-            if(idUser != null){
-                binding.editTextText2.text= idUser.toString()
+        lifecycleScope.launch(Dispatchers.IO) {
+
+            val resultItems = GetAllTopsNewUserCase().invoke()
+
+            withContext(Dispatchers.Main) {
+
+                binding.pgbarLoadData.visibility = View.INVISIBLE
+
+                resultItems.onSuccess {
+                    initRecyclerView(it!!.toList())
+                }
+
+                resultItems.onFailure {
+                    initRecyclerView(emptyList())
+                }
             }
-        else{
-            startActivity(
-                Intent(this,
-                    MainActivity::class.java))
-            }
-
-
+        }
     }
 }
-/*class ConstrainActivity : AppCompatActivity() {
-   // private lateinit var binding: ActivityConstrainBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-       /* binding = ActivityConstrainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        initListeners()
-*/
-    }
-/*
-    private fun initListeners(){
-       binding.btnLogin.setOnClickListener{
-            var a = Intent(
-                this,
-                ConstrainActivity::class.java)
-            startActivity(a)
-        }
-
-    }
-
-    override fun onStart(){
-        super.onStart()
-        Log.d("UCE", "Metodo onStart")
-    }
-
-*/
-}*/

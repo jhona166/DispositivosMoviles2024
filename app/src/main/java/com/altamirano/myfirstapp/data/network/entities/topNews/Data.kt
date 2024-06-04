@@ -1,4 +1,4 @@
-package com.altamirano.myfirstapp.data.network.entities.news
+package com.altamirano.myfirstapp.data.network.entities.topNews
 
 data class Data(
     val categories: List<String>,

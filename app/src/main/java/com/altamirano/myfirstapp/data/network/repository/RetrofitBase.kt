@@ -17,10 +17,12 @@ object RetrofitBase {
 
     }
 
+
+
+
     fun returnBaseRetrofitNews():Retrofit {
         return Retrofit.Builder()
             .baseUrl("https://api.thenewsapi.com/v1/news/")
-            // .build()
             .addConverterFactory(GsonConverterFactory.create())
             .client(apiClient())
             .build()

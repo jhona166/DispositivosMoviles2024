@@ -5,142 +5,31 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.activities.ConstrainActivity">
 
-
-
-    <androidx.cardview.widget.CardView
-
-        android:id="@+id/cardView2"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTopNews"
         android:layout_width="match_parent"
-        android:layout_height="440dp"
-        android:layout_margin="20dp"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.309"
-        tools:layout_editor_absoluteX="77dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-            <ImageView
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_marginTop="60dp"
-
-                android:src="@drawable/login"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/txtWelcome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="TextView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.46"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textField"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:hint="@string/txt_password"
-                app:boxStrokeColor="@color/green"
-                app:hintTextColor="@color/blue"
-                app:layout_constraintBottom_toTopOf="@+id/btn_login"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.496"
-                app:layout_constraintStart_toStartOf="parent"
-                >
-
-
-                <EditText
-                    android:id="@+id/editTextText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="text"
-                    />
-
-
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/txt_user"
-            app:boxStrokeColor="@color/green"
-            app:hintTextColor="@color/blue"
-
-            app:layout_constraintBottom_toTopOf="@+id/btn_login"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <TextView
-                android:id="@+id/editTextText2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginBottom="24dp"
-                android:textSize="20sp"
-                android:ems="10"
-                android:inputType="text"
-                android:text="Hola"/>
-
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-
-            <Button
-                android:id="@+id/btn_login"
-                style="@style/ButtonBlue"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/btn_height"
-                android:layout_marginBottom="32dp"
-                android:text="Ingresar"
-                android:textSize="@dimen/text_size_18"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.347"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/button2"
-                style="@style/ButtonGreen"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/btn_height"
-                android:layout_marginBottom="32dp"
-
-
-                android:text="Regresar"
-                android:textSize="@dimen/text_size_18"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.713"
-                app:layout_constraintStart_toStartOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/pgbarLoadData"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:visibility="invisible"
+        android:indeterminate="true"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
 
