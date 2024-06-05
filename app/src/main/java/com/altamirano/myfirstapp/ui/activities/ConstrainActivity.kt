@@ -1,14 +1,18 @@
 package com.altamirano.myfirstapp.ui.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.altamirano.myfirstapp.data.network.entities.NewsDataUI
+import com.altamirano.myfirstapp.data.network.entities.topNews.Data
 import com.altamirano.myfirstapp.databinding.ActivityConstrainBinding
 import com.altamirano.myfirstapp.logic.usercases.GetAllTopsNewUserCase
 import com.altamirano.myfirstapp.ui.adapters.NewsAdapter
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -26,8 +30,8 @@ class ConstrainActivity : AppCompatActivity() {
         initData()
     }
 
-    private fun initRecyclerView(items: List<com.altamirano.myfirstapp.data.network.entities.topNews.Data>) {
-        binding.rvTopNews.adapter = NewsAdapter(items)
+    private fun initRecyclerView(items: List<NewsDataUI>) {
+        binding.rvTopNews.adapter = NewsAdapter(items){showTitle(it)}
         binding.rvTopNews.layoutManager = LinearLayoutManager(
             this, LinearLayoutManager.VERTICAL, false
         )
@@ -53,5 +57,12 @@ class ConstrainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun showTitle(news: NewsDataUI) {
+        val intent = Intent(this,MainActivity::class.java).apply{
+            putExtra("id",news.id)
+        }
+        startActivity(intent)
     }
 }

@@ -55,8 +55,14 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     //retrofit
 
-
+    implementation(libs.glide)
 
     implementation(libs.bundles.retrofit)
     implementation(libs.coil)
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
+
 }
