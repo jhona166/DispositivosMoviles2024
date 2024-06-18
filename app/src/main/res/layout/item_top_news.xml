@@ -22,6 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+
     <TextView
         android:id="@+id/txtUrlNews"
         tools:text="Url"
@@ -31,15 +32,30 @@
         android:layout_height="wrap_content"/>
 
     <TextView
+        android:id="@+id/txtLanguage"
+        tools:text="Url"
+        android:textSize="12sp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
         android:id="@+id/txtDescNews"
         tools:text="Descripcion"
         android:textSize="12sp"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
 
     <Button
         android:id="@+id/btnDelete"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -47,5 +63,16 @@
         style="@style/ButtonBlue"
         android:textColor="@color/white"
         />
+
+        <Button
+            android:id="@+id/btnInsert"
+            style="@style/ButtonGreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Insertar"
+            android:textColor="@color/white"
+            />
+    </LinearLayout>
 
 </LinearLayout>

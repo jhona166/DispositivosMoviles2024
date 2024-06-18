@@ -65,4 +65,6 @@ dependencies {
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
 
+    //swipeRefresh
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 }

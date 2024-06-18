@@ -13,21 +13,32 @@ import com.altamirano.myfirstapp.data.network.entities.NewsDataUI
 import com.altamirano.myfirstapp.databinding.ItemTopNewsBinding
 
 class NewsAdapter(
-    private val itemList: List<NewsDataUI>
-            ,private val onClickItem:(NewsDataUI)->Unit
+   // private val itemList: List<NewsDataUI>
+            private val onClickItem:(NewsDataUI)->Unit,
+            private val onDeleteItem:(Int)->Unit,
+            private val onInsertItem:()->Unit
 ) :
     RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
+    var itemList: List<NewsDataUI> = emptyList()
+
 
     class NewsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         private val binding = ItemTopNewsBinding.bind(view)
 
         fun render(data: NewsDataUI,
-                   onClickItem:(NewsDataUI)->Unit) {
+                   onClickItem:(NewsDataUI)->Unit,
+                   onDeleteItem:(Int)->Unit,
+                   onInsertItem:()->Unit
+        )
+
+            {
 
             binding.txtTitleNews.text = data.name
             binding.txtUrlNews.text = data.url
             binding.txtDescNews.text = data.description
+            binding.txtLanguage.text =   data.language
+
 
           binding.imgNews
                .load(data.image) {
@@ -35,15 +46,16 @@ class NewsAdapter(
                }
 
             itemView.setOnClickListener{
-                onClickItem(data)
+                  onClickItem(data)
             }
 
             binding.btnDelete.setOnClickListener{
+                onDeleteItem(adapterPosition)
 
             }
-
-
-
+            binding.btnInsert.setOnClickListener{
+                onInsertItem()
+            }
 
         }
     }
@@ -64,7 +76,11 @@ class NewsAdapter(
     override fun getItemCount() = itemList.size
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
-        holder.render(itemList[position],onClickItem)
+        holder.render(itemList[position],
+                     onClickItem,
+                      onDeleteItem,
+                      onInsertItem
+        )
     }
 
 
