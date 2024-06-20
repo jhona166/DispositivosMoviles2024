@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.altamirano.myfirstapp.data.network.entities.NewsDataUI
 import com.altamirano.myfirstapp.data.network.entities.topNews.Data
@@ -40,13 +41,18 @@ class ConstrainActivity : AppCompatActivity() {
     private fun initVaribles() {
         newsAdapter = NewsAdapter(
             {descriptionItem(it)},
-            {deleteItem(it)},
-            {addItem()})
+            {deleteItem(it)})
 
         binding.rvTopNews.adapter = newsAdapter
-        binding.rvTopNews.layoutManager = LinearLayoutManager(
-            this,LinearLayoutManager.VERTICAL,false
+        //Para ubicación de noticias da un formato con 2 columnas
+        binding.rvTopNews.layoutManager = GridLayoutManager(
+            this,
+            2
         )
+        //Para ubicación de noticias da una noticia y se desplaza hacia la izq and dere
+     //   binding.rvTopNews.layoutManager = LinearLayoutManager(
+       //     this,LinearLayoutManager.HORIZONTAL,false
+        //)
 
     }
 
@@ -55,6 +61,9 @@ class ConstrainActivity : AppCompatActivity() {
             initData()
             binding.refreshRV.isRefreshing = false
         }
+            binding.btnInsert.setOnClickListener{
+                addItem()
+            }
     }
 
     private fun initRecyclerView() {

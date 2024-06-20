@@ -16,7 +16,7 @@ class NewsAdapter(
    // private val itemList: List<NewsDataUI>
             private val onClickItem:(NewsDataUI)->Unit,
             private val onDeleteItem:(Int)->Unit,
-            private val onInsertItem:()->Unit
+          //  private val onInsertItem:()->Unit
 ) :
     RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
     var itemList: List<NewsDataUI> = emptyList()
@@ -28,8 +28,8 @@ class NewsAdapter(
 
         fun render(data: NewsDataUI,
                    onClickItem:(NewsDataUI)->Unit,
-                   onDeleteItem:(Int)->Unit,
-                   onInsertItem:()->Unit
+                   onDeleteItem:(Int)->Unit
+
         )
 
             {
@@ -38,9 +38,7 @@ class NewsAdapter(
             binding.txtUrlNews.text = data.url
             binding.txtDescNews.text = data.description
             binding.txtLanguage.text =   data.language
-
-
-          binding.imgNews
+             binding.imgNews
                .load(data.image) {
                    placeholder(R.drawable.logo)
                }
@@ -53,9 +51,7 @@ class NewsAdapter(
                 onDeleteItem(adapterPosition)
 
             }
-            binding.btnInsert.setOnClickListener{
-                onInsertItem()
-            }
+
 
         }
     }
@@ -79,7 +75,7 @@ class NewsAdapter(
         holder.render(itemList[position],
                      onClickItem,
                       onDeleteItem,
-                      onInsertItem
+
         )
     }
 

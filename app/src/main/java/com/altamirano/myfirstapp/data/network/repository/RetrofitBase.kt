@@ -29,6 +29,9 @@ object RetrofitBase {
 
     }
 
+
+
+
     private fun apiClient():OkHttpClient =  OkHttpClient.Builder()
           .addInterceptor(NewsInterceptor(RetrofitBase.NEWS_API_KEY))
           .build()

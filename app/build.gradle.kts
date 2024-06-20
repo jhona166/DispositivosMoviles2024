@@ -43,7 +43,6 @@ buildFeatures{
 dependencies {
 
 
-    
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -66,5 +65,8 @@ dependencies {
     implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
 
     //swipeRefresh
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
+    //lottie
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 }

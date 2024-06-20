@@ -64,15 +64,17 @@
         android:textColor="@color/white"
         />
 
-        <Button
-            android:id="@+id/btnInsert"
-            style="@style/ButtonGreen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Insertar"
-            android:textColor="@color/white"
-            />
+        <!-- Comentario temporal: botón de insertar deshabilitado
+  <Button
+      android:id="@+id/btnInsert"
+      style="@style/ButtonGreen"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="5dp"
+      android:text="Insertar"
+      android:textColor="@color/white"
+  />
+  -->
     </LinearLayout>
 
 </LinearLayout>
