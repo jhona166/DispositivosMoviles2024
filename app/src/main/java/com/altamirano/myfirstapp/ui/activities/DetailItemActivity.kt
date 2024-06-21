@@ -24,21 +24,24 @@ class DetailItemActivity : AppCompatActivity() {
         binding = ActivityDetailItemBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        intent.extras.let{
-            itemId = it?.getString("id").toString()
-        }
-        binding.txtIdItem.text = itemId
+//        intent.extras.let{
+//            itemId = it?.getString("id").toString()
+//        }
+//        binding.txtIdItem.text = itemId
+//
+//        lifecycleScope.launch(Dispatchers.Main) {
+//            val item = withContext(Dispatchers.IO){
+//                getData()
+//            }
+//            if(item!=null){
+//                binding.txtIdItem.text = item.title
+//            }
+//
+//        }
 
-        lifecycleScope.launch(Dispatchers.Main) {
-            val item = withContext(Dispatchers.IO){
-                getData()
-            }
-            if(item!=null){
-                binding.txtIdItem.text = item.title
-            }
-
-        }
     }
+
+
     suspend fun getData(): OneNewsDataClass? {
         var item: OneNewsDataClass? = null
         val x = GetOneNewsUserCase().invoke(itemId)
