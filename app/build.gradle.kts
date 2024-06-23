@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -60,7 +61,7 @@ dependencies {
     implementation(libs.coil)
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-
+    //Recycler View
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
 
@@ -72,4 +73,9 @@ dependencies {
 
     //Carousel
     implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
+
+    //Room
+    implementation("androidx.room:room-runtime:2.6.1")
+    annotationProcessor("androidx.room:room-compiler:2.6.1")
+    ksp("androidx.room:room-compiler:2.6.1")
 }
