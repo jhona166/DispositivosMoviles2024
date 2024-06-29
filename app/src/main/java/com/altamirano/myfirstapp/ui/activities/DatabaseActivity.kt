@@ -24,8 +24,6 @@ class DatabaseActivity : AppCompatActivity() {
         binding = ActivityDatabaseBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
         initVariables()
         initListener()
 

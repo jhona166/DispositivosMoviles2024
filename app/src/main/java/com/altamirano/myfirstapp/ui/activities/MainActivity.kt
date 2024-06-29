@@ -3,6 +3,7 @@ package com.altamirano.myfirstapp.ui.activities
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -44,6 +45,9 @@ class MainActivity : AppCompatActivity() {
                     putExtra("idUser", user.id)
                 }
                 startActivity(intentToConstarintAct)
+               // binding.lytLoading.root.visibility = View.GONE
+               // finish()
+
             }
 
             result.onFailure {
